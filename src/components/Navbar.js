@@ -16,6 +16,7 @@ function HeaderComponent() {
           <Nav className="me-auto">
             <Nav.Link href="#features">Home </Nav.Link>
             <Nav.Link href="#pricing">Listings</Nav.Link>
+            <Nav.Link href="#pricing">Search</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">Register</Nav.Link>
