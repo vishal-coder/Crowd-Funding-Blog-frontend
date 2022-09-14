@@ -1,0 +1,64 @@
+.header {
+  background-color: tomato;
+}
+
+.cartIcon {
+  margin-left: 5px;
+}
+
+.top {
+  width: 100%;
+  height: 5rem;
+  background-color: rgb(170, 146, 114);
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+  justify-content: center;
+  align-items: center;
+}
+
+.topCenter {
+  flex: 6;
+}
+.top .topRight {
+  display: flex;
+  flex: 3;
+  justify-content: center;
+  align-items: center;
+}
+
+.topimg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.topsearchicon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.topList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toplistitem {
+  margin-right: 2rem;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+}
