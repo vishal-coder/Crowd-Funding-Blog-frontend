@@ -1,14 +1,22 @@
+body {
+  background-color: #d6eee2;
+}
 .error {
   color: red;
 }
 .successResponse {
   padding: 20px;
   background-color: #caf9c4;
+  text-align: center;
 }
 
+.separator {
+  height: 15rem;
+}
 .errorResponse {
   padding: 20px;
   background-color: #f9c4c4;
+  text-align: center;
 }
 
 .defaultShadow {
@@ -22,7 +30,6 @@
   margin-top: 5rem;
   padding: 3rem;
   line-height: 1.5;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .resetpassworddiv {
@@ -32,26 +39,12 @@
   margin-top: 5rem;
   padding: 2rem;
   line-height: 1.5;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .modal-50w {
   width: 50%;
   height: 80%;
   max-width: none !important;
-}
-
-.momoImg {
-  position: relative;
-  padding: 5px;
-  display: inline-block;
-  width: 100% !important;
-  height: 10px;
-  width: 200px;
-  object-fit: cover;
-  border: 1px;
-  border-radius: 50%;
-  object-fit: none;
 }
 
 .card-img-top {
@@ -77,7 +70,28 @@
   padding-top: 1rem;
 }
 
-.nav-link:hover {
-  color: white;
-  background-color: darkgreen;
+@media only screen and (max-width: 1200px) {
+  .forgotpasswordwrapper {
+    width: 50%;
+  }
+  .resetpassworddiv {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .forgotpasswordwrapper {
+    width: 70%;
+  }
+  .resetpassworddiv {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .forgotpasswordwrapper {
+    width: 90%;
+  }
+  .resetpassworddiv {
+    width: 90%;
+  }
 }

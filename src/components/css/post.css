@@ -21,9 +21,12 @@
   font-size: 11px;
   line-height: 20px;
   margin-top: 1rem;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
   cursor: pointer;
   color: cornflowerblue;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .posttitle {

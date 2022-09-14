@@ -6,8 +6,6 @@ export const authSlice = createSlice({
     user: null, // for user object
     userToken: localStorage.getItem("token") || null, // for storing the JWT
     isLoggedIn: false,
-    error: null,
-    success: false, // for monitoring the registration process.
   },
   reducers: {
     setUser: (state, action) => {
@@ -23,10 +21,7 @@ export const authSlice = createSlice({
     },
 
     LOG_OUT: (state) => {
-      console.log("called set LOG_OUT", state);
       state.user = undefined;
-
-      console.log("called set LOG_OUT", state);
     },
   },
 });

@@ -9,9 +9,11 @@ function Post() {
         alt="Donate Image"
       />
       <div className="postinfo">
-        <div className="postcat">Mediclaim</div>
+        <div className="postcat">
+          <div>Mediclaim</div>
+          <div className=" "> Created on 22-09-2022</div>
+        </div>
         <span className="posttitle"> this is post title with super text</span>
-        <span className=" ">22-09-2022</span>
       </div>
       <p className="postdescription">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste quam,
