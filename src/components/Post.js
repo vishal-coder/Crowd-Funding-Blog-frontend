@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+import { formatDate } from "../services/utilityService";
 import "./css/post.css";
 
-function Post() {
+function Post({ post }) {
   return (
     <div className="post">
       <img
@@ -10,23 +12,15 @@ function Post() {
       />
       <div className="postinfo">
         <div className="postcat">
-          <div>Mediclaim</div>
-          <div className=" "> Created on 22-09-2022</div>
+          <div>Created By : {post.name}</div>
+          <div className=" ">catg: {post.category}</div>
         </div>
-        <span className="posttitle"> this is post title with super text</span>
+        <span className="posttitle">
+          <Link to={`/singlePost/${post._id}`}>{post.title}</Link>
+        </span>
+        {/* {post.title} */}
       </div>
-      <p className="postdescription">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste quam,
-        vitae et quia eaque aut obcaecati ea. Sequi corporis, nam at, repellat
-        placeat doloribus vitae incidunt numquam deleniti corrupti rem. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Sapiente architecto
-        dolores officiis doloremque natus delectus voluptatem quae placeat
-        possimus doloribus! Optio repellendus sed saepe nihil ea, rerum expedita
-        repellat obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Molestias, ipsa natus, sequi odit earum perferendis neque amet
-        quam repellat adipisci, repellendus eum laborum accusamus dolor quae! At
-        itaque expedita ab.
-      </p>
+      <p className="postdescription">{post.description}</p>
     </div>
   );
 }

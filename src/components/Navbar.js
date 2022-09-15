@@ -22,11 +22,10 @@ function HeaderComponent() {
     if (!response.success) {
       toast.error("Error while logging out");
     } else {
+      navigate("/");
       setIsLoading(false);
       toast.success("User Logged out successfully");
       dispatch(LOG_OUT());
-      // dispatch(resetCart());
-      navigate("/");
     }
   };
   return (
@@ -50,7 +49,29 @@ function HeaderComponent() {
             >
               Listings
             </Nav.Link>
-            <Nav.Link href="#pricing">Search</Nav.Link>
+            {user && user.userType != "admin" ? (
+              <>
+                <Nav.Link
+                  onClick={() => {
+                    navigate("/createPost");
+                  }}
+                >
+                  Create
+                </Nav.Link>
+                <Nav.Link
+                  onClick={() => {
+                    navigate("/userView");
+                  }}
+                >
+                  My Posts
+                </Nav.Link>
+              </>
+            ) : null}
+            {user && user.userType == "admin" ? (
+              <Nav.Link onClick={() => navigate("/dashboard")}>
+                Dashboard
+              </Nav.Link>
+            ) : null}
           </Nav>
           <Nav>
             {!user ? (
@@ -73,7 +94,7 @@ function HeaderComponent() {
               </>
             ) : (
               <>
-                <Navbar.Text>Welcome, {user.user.name}</Navbar.Text>
+                <Navbar.Text>Welcome, {user.name}</Navbar.Text>
                 <Nav.Link
                   onClick={() => {
                     handleLogout();

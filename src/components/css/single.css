@@ -1,3 +1,8 @@
 .singlepost {
+  margin-top: 2rem;
   display: flex;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
 }

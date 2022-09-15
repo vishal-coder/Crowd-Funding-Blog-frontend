@@ -10,6 +10,10 @@ import { useDispatch } from "react-redux";
 import { requestLogin } from "../services/authService.js";
 import { setUser } from "../features/auth/authSlice.js";
 import { toast } from "react-toastify";
+import { getAdminPost, getAllPost, getUserPost } from "../services/postService";
+import { setpostList } from "../features/postSlice";
+// import { setpostList } from "../features/postSlice.js";
+
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,12 +23,29 @@ function Login() {
     if (!response.success) {
       setFieldError("username", response.message);
     } else {
-      dispatch(setUser(response));
+      dispatch(setUser(response.user));
+      console.log("response", response);
+      const postList = handleGetPostlist(response.user);
       if (response.user.userType != "admin") {
-        navigate("/singlePost");
+        navigate("/posts");
       } else {
-        navigate("/singlePost");
+        navigate("/posts");
       }
+    }
+  };
+
+  const handleGetPostlist = async (user) => {
+    console.log("handlegetpostlist", user);
+    if (user.userType != "admin") {
+      const response = await getUserPost({
+        username: user.email,
+      });
+      console.log("resopnse of getAllPost post is", response);
+      dispatch(setpostList(response.posts));
+    } else {
+      const response = await getAdminPost({});
+      console.log("resopnse of getAllPost post is", response);
+      dispatch(setpostList(response.posts));
     }
   };
   const loginvalidationschema = yup.object({

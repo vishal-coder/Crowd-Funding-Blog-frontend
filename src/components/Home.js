@@ -9,8 +9,8 @@ function Home() {
     <>
       <Header />
       <div className="home">
-        <Posts />
-        <Sidebar />
+        {/* <Posts /> */}
+        {/* <Sidebar /> */}
       </div>
     </>
   );

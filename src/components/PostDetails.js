@@ -1,7 +1,8 @@
 import "./css/postdetails.css";
 import { PencilFill, TrashFill } from "react-bootstrap-icons";
+import { formatDate } from "../services/utilityService";
 
-function PostDetails() {
+function PostDetails({ post }) {
   return (
     <div className="postdetails">
       <div className="postdetailswrapper">
@@ -11,7 +12,7 @@ function PostDetails() {
           alt="Coral Image"
         />
         <h1 className="singleposttitle">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae laborum
+          {post.title}
           <div className="singepostedit">
             <PencilFill
               className="singlepostIcon"
@@ -28,43 +29,13 @@ function PostDetails() {
           </div>
         </h1>
         <div className="singlepostinfo">
-          <div className="singlepostauthor">Created By :Username</div>
-          <div className="singlepostdate">Created On : 22-09-2022</div>
+          <div className="singlepostauthor">Created By : {post.name}</div>
+          <div className="singlepostdate">
+            Created On : {formatDate(post.createdOn)}
+          </div>
         </div>
-        <p className="singlepostdesc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eum
-          repudiandae voluptatum assumenda incidunt officia ex omnis molestias
-          ullam, atque eveniet illum, dolores cupiditate doloribus rem? Adipisci
-          ipsam ratione nobis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Odit expedita cupiditate officiis numquam
-          accusantium labore sed, est dolore sit iusto perferendis voluptates,
-          dolorum error laboriosam modi cum explicabo aperiam ut. Lorem ipsum
-          dolor sit amet consectetur, adipisicing elit. Sunt possimus architecto
-          impedit blanditiis labore iste numquam corporis officiis nemo illum!
-          Aut possimus vitae, eos tenetur quod sunt laborum esse velit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Impedit eum
-          repudiandae voluptatum assumenda incidunt officia ex omnis molestias
-          ullam, atque eveniet illum, dolores cupiditate doloribus rem? Adipisci
-          ipsam ratione nobis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Odit expedita cupiditate officiis numquam
-          accusantium labore sed, est dolore sit iusto perferendis voluptates,
-          dolorum error laboriosam modi cum explicabo aperiam ut. Lorem ipsum
-          dolor sit amet consectetur, adipisicing elit. Sunt possimus architecto
-          impedit blanditiis labore iste numquam corporis officiis nemo illum!
-          Aut possimus vitae, eos tenetur quod sunt laborum esse velit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Impedit eum
-          repudiandae voluptatum assumenda incidunt officia ex omnis molestias
-          ullam, atque eveniet illum, dolores cupiditate doloribus rem? Adipisci
-          ipsam ratione nobis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Odit expedita cupiditate officiis numquam
-          accusantium labore sed, est dolore sit iusto perferendis voluptates,
-          dolorum error laboriosam modi cum explicabo aperiam ut. Lorem ipsum
-          dolor sit amet consectetur, adipisicing elit. Sunt possimus architecto
-          impedit blanditiis labore iste numquam corporis officiis nemo illum!
-          Aut possimus vitae, eos tenetur quod sunt laborum esse velit.
-        </p>
+        <p className="singlepostdesc">{post.description}</p>
       </div>
-      PostDetails
     </div>
   );
 }

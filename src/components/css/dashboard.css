@@ -1,0 +1,10 @@
+.dashboard {
+  text-align: center;
+  margin-top: 1rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1 {
+  margin-bottom: 0.5rem;
+}

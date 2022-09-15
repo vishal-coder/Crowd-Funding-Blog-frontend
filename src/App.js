@@ -15,8 +15,26 @@ import ResetPassword from "./components/ResetPassword";
 import VerifyEmail from "./components/VerifyEmail";
 import VerifyToken from "./components/VerifyToken";
 import ForgotPassword from "./components/ForgotPassword.js";
+import CreatePost from "./components/CreatePost.js";
+import Dashboard from "./components/Dashboard";
+import UserView from "./components/UserView";
+import Posts from "./components/Posts";
+import { useEffect } from "react";
+import { getAllPost } from "./services/postService";
+import { useDispatch } from "react-redux";
+import { setpostList } from "./features/postSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getAllPost();
+      console.log("resopnse of getAllPost APP.js is", response);
+      dispatch(setpostList(response.posts));
+    }
+    fetchData();
+  }, []);
   return (
     <div className="App">
       <ToastContainer theme="colored" />
@@ -26,11 +44,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/singlePost" element={<Single />} />
+        <Route path="/singlePost/:Id" element={<Single />} />
+        <Route path="/createPost" element={<CreatePost />} />
         <Route path="forgotpassword" element={<ForgotPassword />} />
         <Route path="/verifyEmail/:token" element={<VerifyEmail />} />
         <Route path="/verifyToken" element={<VerifyToken />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/userView" element={<UserView />} />
+        <Route path="/posts" element={<Posts />} />
       </Routes>
       {/* <Navbar /> */}
       {/* <Home /> */}
