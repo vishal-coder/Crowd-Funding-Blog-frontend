@@ -84,3 +84,21 @@ export async function getUserDetails(values) {
 
   return data;
 }
+
+export async function updateStatus(values) {
+  const response = await fetch(
+    `${process.env.REACT_APP_API}/post/updateStatus`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(values),
+    }
+  );
+
+  const data = await response.json();
+
+  return data;
+}

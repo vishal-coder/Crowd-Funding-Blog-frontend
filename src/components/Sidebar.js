@@ -9,10 +9,12 @@ function Sidebar({ userName }) {
   useEffect(() => {
     async function fetchData() {
       console.log("username in sidebar is", userName);
-      const userResponse = await getUserDetails({
-        username: userName,
-      });
-      setUser(userResponse.userDetails);
+      if (user) {
+        const userResponse = await getUserDetails({
+          username: userName,
+        });
+        setUser(userResponse.userDetails);
+      }
     }
     fetchData();
   }, []);

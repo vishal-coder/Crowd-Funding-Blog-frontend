@@ -16,12 +16,12 @@ const postSlice = createSlice({
     addNewpost: (state, action) => {
       state.postList.push({ ...action.payload });
     },
-    //     addEditedpost: (state, action) => {
-    //       const editedList = state.postList.map(function (item) {
-    //         return item._id == action.payload._id ? action.payload : item;
-    //       });
-    //       state.postList = editedList;
-    //     },
+    addEditedpost: (state, action) => {
+      const editedList = state.postList.map(function (item) {
+        return item._id == action.payload._id ? action.payload : item;
+      });
+      state.postList = editedList;
+    },
   },
 });
 
@@ -30,5 +30,6 @@ export default postSlice.reducer;
 export const {
   setpostList,
   addNewpost,
+  addEditedpost,
   // addpostToList, addNewpost, addEditedpost
 } = postSlice.actions;
