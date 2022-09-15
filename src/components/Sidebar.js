@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getUserDetails } from "../services/postService";
 import "./css/sidebar.css";
 
@@ -17,13 +18,37 @@ function Sidebar({ userName }) {
   }, []);
   return (
     <div className="sidebar">
+      <div className="sidebarItem">
+        <span className="sidebarTitle">CATEGORIES </span>
+        <ul className="sidebarList">
+          <li className="sidebarListItem">
+            <Link to="/posts/StartUp">StartUp</Link>
+          </li>
+
+          <li className="sidebarListItem">
+            <Link to="/posts/Health">Health</Link>
+          </li>
+          <li className="sidebarListItem">
+            <Link to="/posts/Education">Education</Link>
+          </li>
+          <li className="sidebarListItem">
+            <Link to="/posts/Farmers">Farmers</Link>
+          </li>
+          <li className="sidebarListItem">
+            <Link to="/posts/Environment">Environment</Link>
+          </li>
+          <li className="sidebarListItem">
+            <Link to="/posts/Other">Other</Link>
+          </li>
+        </ul>
+      </div>{" "}
       {user ? (
         <>
           <div className="sidebarItem">
             <div className="sidebarTitle">ABOUT ME</div>
             <img
               className="sidebarImg"
-              src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1663268178~exp=1663268778~hmac=947e0c982fb67cd115e1baefc7c206c423de446acff30dc2088ce9d79a76413a"
               alt="Profile Picture"
             />
             <div>
@@ -31,20 +56,8 @@ function Sidebar({ userName }) {
             </div>
             <p>{user.about}</p>
           </div>
-          <div className="sidebarItem">
-            <span className="sidebarTitle">CATEGORIES </span>
-            <ul className="sidebarList">
-              <li className="sidebarListItem">StartUP</li>
-              <li className="sidebarListItem">Environmental</li>
-              <li className="sidebarListItem">Health</li>
-              <li className="sidebarListItem">Farmers</li>
-              <li className="sidebarListItem">Tree Plantation</li>
-            </ul>
-          </div>{" "}
         </>
-      ) : (
-        <p>Data is loading</p>
-      )}
+      ) : null}
     </div>
   );
 }

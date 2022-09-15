@@ -1,3 +1,8 @@
+.home {
+  display: flex;
+  /* height: 80vh; */
+  height: 100%;
+}
 .posts {
   flex: 9;
   display: flex;

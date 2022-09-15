@@ -14,7 +14,8 @@ function PostDetails({ post }) {
         <h1 className="singleposttitle">
           {post.title}
           <div className="singepostedit">
-            <PencilFill
+            Category : {post.category}
+            {/* <PencilFill
               className="singlepostIcon"
               color="teal"
               style={{ marginLeft: "2rem" }}
@@ -25,7 +26,7 @@ function PostDetails({ post }) {
               color="tomato"
               style={{ marginLeft: "2rem" }}
               // onClick={() => handleDeleteProduct(product._id)}
-            />
+            /> */}
           </div>
         </h1>
         <div className="singlepostinfo">

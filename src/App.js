@@ -53,6 +53,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/userView" element={<UserView />} />
         <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:category" element={<Posts />} />
       </Routes>
       {/* <Navbar /> */}
       {/* <Home /> */}
