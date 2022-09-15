@@ -19,7 +19,7 @@
 
 textarea.form-control {
   min-height: calc(1.5em + 0.75rem + 2px);
-  height: 16rem;
+  height: 5rem;
   overflow: auto;
 }
 .createpostbtn {
