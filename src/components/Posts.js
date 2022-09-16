@@ -29,6 +29,7 @@ function Posts() {
                 //post.status != "Pending" ? <Post post={post} /> : null//
                 return (
                   post.status != "Pending" &&
+                  post.status != "Rejected" &&
                   (category ? (
                     category == post.category && <Post post={post} />
                   ) : (

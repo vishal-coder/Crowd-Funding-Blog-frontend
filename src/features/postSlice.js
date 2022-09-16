@@ -22,14 +22,16 @@ const postSlice = createSlice({
       });
       state.postList = editedList;
     },
+    removePost: (state, action) => {
+      const updatdPostList = state.postList.filter(
+        (item) => item._id != action.payload._id
+      );
+      state.postList = updatdPostList;
+    },
   },
 });
 
 export default postSlice.reducer;
 
-export const {
-  setpostList,
-  addNewpost,
-  addEditedpost,
-  // addpostToList, addNewpost, addEditedpost
-} = postSlice.actions;
+export const { setpostList, addNewpost, addEditedpost, removePost } =
+  postSlice.actions;

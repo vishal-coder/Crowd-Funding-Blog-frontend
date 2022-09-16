@@ -67,9 +67,10 @@ function Dashboard() {
               <td>
                 {post.status != "Pending" ? (
                   <>
-                    <Button variant="danger" size="sm">
+                    {/* <Button variant="danger" size="sm">
                       Delete
-                    </Button>
+                    </Button> */}
+                    <span>No Action needed</span>
                   </>
                 ) : (
                   <>

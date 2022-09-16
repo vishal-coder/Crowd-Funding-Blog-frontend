@@ -102,3 +102,18 @@ export async function updateStatus(values) {
 
   return data;
 }
+
+export async function deltePost(values) {
+  const response = await fetch(`${process.env.REACT_APP_API}/post/delete`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(values),
+  });
+
+  const data = await response.json();
+
+  return data;
+}
