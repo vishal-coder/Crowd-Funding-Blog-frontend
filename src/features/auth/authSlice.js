@@ -6,6 +6,7 @@ export const authSlice = createSlice({
     user: null, // for user object
     userToken: localStorage.getItem("token") || null, // for storing the JWT
     isLoggedIn: false,
+    paymentInfo: null,
   },
   reducers: {
     setUser: (state, action) => {
@@ -19,6 +20,9 @@ export const authSlice = createSlice({
     setUserToken: (state, action) => {
       state.userToken = action.payload;
     },
+    setUserPaymentInfo: (state, action) => {
+      state.paymentInfo = action.payload;
+    },
 
     LOG_OUT: (state) => {
       state.user = undefined;
@@ -26,7 +30,12 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUser, setIsLoggedIn, setUserToken, LOG_OUT } =
-  authSlice.actions;
+export const {
+  setUser,
+  setIsLoggedIn,
+  setUserToken,
+  LOG_OUT,
+  setUserPaymentInfo,
+} = authSlice.actions;
 
 export default authSlice.reducer;

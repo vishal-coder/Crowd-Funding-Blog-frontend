@@ -31,7 +31,7 @@ function HeaderComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" fixed="top" className="sticky-nav">
       <Container>
-        <Navbar.Brand>FundME</Navbar.Brand>
+        <Navbar.Brand>FundME100</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
