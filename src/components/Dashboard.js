@@ -144,11 +144,7 @@ function Dashboard() {
           <Modal.Title className="text-center">Transaction Summary</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <PostPaymentDashboard
-            postId={postId}
-            setShow={setShow}
-            key={postId}
-          />
+          <PostPaymentDashboard key={postId} />
         </Modal.Body>
       </Modal>
     </div>

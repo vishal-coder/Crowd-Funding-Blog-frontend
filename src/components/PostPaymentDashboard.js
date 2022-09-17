@@ -17,10 +17,10 @@ function PostPaymentDashboard() {
         <>
           <ProgressBar
             className="progress"
-            now={(
+            now={`${(
               (paymentInfo.receivedTotal / paymentInfo.total) *
               100
-            ).toFixed(2)}
+            ).toFixed(2)} %`}
             label={`${(
               (paymentInfo.receivedTotal / paymentInfo.total) *
               100
