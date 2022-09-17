@@ -10,7 +10,7 @@ import { addEditedpost } from "../features/postSlice";
 import Modal from "react-bootstrap/Modal";
 import PostPaymentDashboard from "./PostPaymentDashboard";
 import { useEffect, useState } from "react";
-import { getPaymentInfo } from "../services/paymentService";
+import { getPaymentInfo, getTotalPayment } from "../services/paymentService";
 import { setUserPaymentInfo } from "../features/auth/authSlice";
 
 function Dashboard() {
@@ -49,6 +49,11 @@ function Dashboard() {
       { postId: postId },
       user.token
     );
+
+    const response = await getTotalPayment({ postId: postId }, user.token);
+
+    paymentInfoList.paymentData.receivedTotal =
+      response.paymentData[0].receivedAmount;
     dispatch(setUserPaymentInfo(paymentInfoList.paymentData));
     handleShow();
   };
@@ -83,16 +88,20 @@ function Dashboard() {
               <td>{post.amount}</td>
               <td>{post.amount}</td>
               <td>
-                <Button
-                  variant="success"
-                  size="sm"
-                  onClick={() => {
-                    setPostId(post._id);
-                    handlePaymentData(post._id);
-                  }}
-                >
-                  Payment Info
-                </Button>{" "}
+                {post.status != "Pending" ? (
+                  <Button
+                    variant="success"
+                    size="sm"
+                    onClick={() => {
+                      setPostId(post._id);
+                      handlePaymentData(post._id);
+                    }}
+                  >
+                    Payment Info
+                  </Button>
+                ) : (
+                  <p>Not activated</p>
+                )}
               </td>
               <td>
                 {post.status != "Pending" ? (

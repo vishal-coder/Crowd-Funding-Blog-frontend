@@ -9,11 +9,6 @@
   object-fit: cover;
   border-radius: 1rem;
 }
-.progress {
-  width: 100%;
-  border: 1px solid green;
-  flex: 3;
-}
 
 .postAction {
   margin-top: 1rem;

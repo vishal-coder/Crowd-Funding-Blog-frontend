@@ -120,7 +120,7 @@ function DonateButton({ post }) {
         onClick={() => handleDonate(post)}
         disabled={loading}
       >
-        Buy a Coffee
+        Donate
       </Button>
       <Modal show={show} onHide={handleClose} dialogClassName="modal-50w">
         <Modal.Header closeButton>
