@@ -4,16 +4,15 @@ import { getUserDetails } from "../services/postService";
 import "./css/sidebar.css";
 
 function Sidebar({ userName }) {
-  const [user, setUser] = useState("");
+  const [userInfo, setUserInfo] = useState("");
 
   useEffect(() => {
     async function fetchData() {
-      console.log("username in sidebar is", userName);
-      if (user) {
+      if (userName) {
         const userResponse = await getUserDetails({
           username: userName,
         });
-        setUser(userResponse.userDetails);
+        setUserInfo(userResponse.userDetails);
       }
     }
     fetchData();
@@ -33,18 +32,19 @@ function Sidebar({ userName }) {
           <li className="sidebarListItem">
             <Link to="/posts/Education">Education</Link>
           </li>
+
           <li className="sidebarListItem">
-            <Link to="/posts/Farmers">Farmers</Link>
+            <Link to="/posts/Global Warming">Global Warming</Link>
           </li>
           <li className="sidebarListItem">
-            <Link to="/posts/Environment">Environment</Link>
+            <Link to="/posts/Natural Disasters">Natural Disasters</Link>
           </li>
           <li className="sidebarListItem">
             <Link to="/posts/Other">Other</Link>
           </li>
         </ul>
       </div>{" "}
-      {user ? (
+      {userInfo ? (
         <>
           <div className="sidebarItem">
             <div className="sidebarTitle">ABOUT ME</div>
@@ -54,9 +54,9 @@ function Sidebar({ userName }) {
               alt="Profile Picture"
             />
             <div>
-              <span>{user.firstname}</span> <span>{user.lastname}</span>
+              <span>{userInfo.firstname}</span> <span>{userInfo.lastname}</span>
             </div>
-            <p>{user.about}</p>
+            <p>{userInfo.about}</p>
           </div>
         </>
       ) : null}
