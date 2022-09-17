@@ -40,11 +40,11 @@ function Login() {
       const response = await getUserPost({
         username: user.email,
       });
-      console.log("resopnse of getAllPost post is", response);
+
       dispatch(setpostList(response.posts));
     } else {
       const response = await getAdminPost({});
-      console.log("resopnse of getAllPost post is", response);
+
       dispatch(setpostList(response.posts));
     }
   };

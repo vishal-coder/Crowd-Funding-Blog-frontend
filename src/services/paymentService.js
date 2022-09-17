@@ -69,3 +69,20 @@ export async function linkPostPayment(values, token) {
   const data = await response.json();
   return data;
 }
+export async function getPaymentInfo(values, token) {
+  const response = await fetch(
+    `${process.env.REACT_APP_API}/payment/paymentInfo`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-auth-token": token,
+      },
+      body: JSON.stringify(values),
+    }
+  );
+
+  const data = await response.json();
+  return data;
+}

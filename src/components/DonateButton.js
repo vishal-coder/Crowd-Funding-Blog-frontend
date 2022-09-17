@@ -90,7 +90,7 @@ function DonateButton({ post }) {
             toast.warning("error in executing order");
           } else {
             handleShow();
-            toast.success("Product ordered successfully");
+            // toast.success("Product ordered successfully");
           }
         },
         prefill: {
@@ -120,11 +120,11 @@ function DonateButton({ post }) {
         onClick={() => handleDonate(post)}
         disabled={loading}
       >
-        Donate
+        Buy a Coffee
       </Button>
       <Modal show={show} onHide={handleClose} dialogClassName="modal-50w">
         <Modal.Header closeButton>
-          <Modal.Title>Transaction Summary</Modal.Title>
+          <Modal.Title className="text-center">Transaction Summary</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <PaymentInfoModal />

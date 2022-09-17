@@ -2,11 +2,19 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../services/utilityService";
 import "./css/post.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import DonateButton from "./DonateButton";
 
 function Post({ post }) {
+  const { user } = useSelector((state) => state.auth);
   const now = 60;
 
+  const handleDonate = () => {
+    if (!user) {
+    }
+    return toast.warning("Please login to donate");
+  };
   return (
     <div className="post">
       <img
@@ -16,13 +24,7 @@ function Post({ post }) {
       />
       <div className="postinfo">
         <div className="postAction">
-          <ProgressBar
-            className="progress"
-            variant="success"
-            now={now}
-            label={`${now}%`}
-          />
-          <DonateButton post={post} />
+          <DonateButton post={post} key={post._id} />
         </div>
         <div className="postcat">
           <div>Created By : {post.name}</div>

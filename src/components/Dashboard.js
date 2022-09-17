@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 import { updateStatus } from "../services/postService";
 import { toast } from "react-toastify";
 import { addEditedpost } from "../features/postSlice";
+import Modal from "react-bootstrap/Modal";
+import PostPaymentDashboard from "./PostPaymentDashboard";
+import { useEffect, useState } from "react";
+import { getPaymentInfo } from "../services/paymentService";
+import { setUserPaymentInfo } from "../features/auth/authSlice";
 
 function Dashboard() {
-  const postList1 = null;
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [postId, setPostId] = useState(); //
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const { postList } = useSelector((state) => state.post);
-  console.log("postlit", postList);
+  const { user } = useSelector((state) => state.auth);
 
   const handleUpdateStatus = async (post, status) => {
     const response = await updateStatus({ id: post._id, status: status });
@@ -36,6 +44,15 @@ function Dashboard() {
     }
   };
 
+  const handlePaymentData = async (postId) => {
+    const paymentInfoList = await getPaymentInfo(
+      { postId: postId },
+      user.token
+    );
+    dispatch(setUserPaymentInfo(paymentInfoList.paymentData));
+    handleShow();
+  };
+
   return (
     <div className="dashboard">
       {" "}
@@ -49,12 +66,13 @@ function Dashboard() {
             <th>Category</th>
             <th>Target</th>
             <th>Received</th>
+            <th>Pay Info</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {postList.map((post, index) => (
-            <tr key={post.id + index}>
+            <tr key={post._id + index}>
               <td>{index + 1}</td>
               <td>
                 <Link to={`/singlePost/${post._id}`}>{post.title}</Link>
@@ -64,6 +82,18 @@ function Dashboard() {
               <td>{post.category}</td>
               <td>{post.amount}</td>
               <td>{post.amount}</td>
+              <td>
+                <Button
+                  variant="success"
+                  size="sm"
+                  onClick={() => {
+                    setPostId(post._id);
+                    handlePaymentData(post._id);
+                  }}
+                >
+                  Payment Info
+                </Button>{" "}
+              </td>
               <td>
                 {post.status != "Pending" ? (
                   <>
@@ -100,6 +130,18 @@ function Dashboard() {
           ))}
         </tbody>
       </Table>
+      <Modal show={show} onHide={handleClose} dialogClassName="modal-50w">
+        <Modal.Header closeButton>
+          <Modal.Title className="text-center">Transaction Summary</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <PostPaymentDashboard
+            postId={postId}
+            setShow={setShow}
+            key={postId}
+          />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
