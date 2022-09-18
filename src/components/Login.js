@@ -12,11 +12,15 @@ import { setUser } from "../features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import { getAdminPost, getAllPost, getUserPost } from "../services/postService";
 import { setpostList } from "../features/postSlice";
+import { socket, SocketContext } from "../context/socket";
+import { useContext } from "react";
+import { useEffect } from "react";
 // import { setpostList } from "../features/postSlice.js";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const socket = useContext(SocketContext);
   const handleLogin = async (values) => {
     const response = await requestLogin(values);
     console.log(response);
@@ -26,6 +30,10 @@ function Login() {
       dispatch(setUser(response.user));
       console.log("response", response);
       const postList = handleGetPostlist(response.user);
+      socket.emit("new user", {
+        username: response.user.email,
+        userType: response.user.userType,
+      });
       if (response.user.userType != "admin") {
         navigate("/posts");
       } else {
@@ -33,6 +41,21 @@ function Login() {
       }
     }
   };
+  console.log("before usefeect login");
+  useEffect(() => {
+    alert("started");
+    socket.on("connect", () => {
+      console.log("I'm connected with the back-end", socket.id);
+    });
+    socket.on("new post", () => {
+      console.log("New post received", socket.id);
+      alert("new post received");
+    });
+    socket.on("new Donation", () => {
+      console.log("new Donation received", socket.id);
+      alert("new  Donation received");
+    });
+  }, []);
 
   const handleGetPostlist = async (user) => {
     console.log("handlegetpostlist", user);

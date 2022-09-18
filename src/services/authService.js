@@ -63,7 +63,7 @@ export async function handleresetpassword(values, id, token) {
   return data;
 }
 
-export const logoutUser = async (token) => {
+export const logoutUser = async (values, token) => {
   const response = await fetch(`${process.env.REACT_APP_API}/auth/logoutUser`, {
     method: "POST",
     headers: {
@@ -71,7 +71,7 @@ export const logoutUser = async (token) => {
       Accept: "application/json",
       "x-auth-token": token,
     },
-    body: JSON.stringify({ token: token }),
+    body: JSON.stringify(values),
   });
 
   const data = await response.json();

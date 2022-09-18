@@ -18,7 +18,7 @@ function HeaderComponent() {
   const [isLoading, setIsLoading] = useState(false);
   const handleLogout = async () => {
     setIsLoading(true);
-    const response = await logoutUser(user.token);
+    const response = await logoutUser({ username: user.email }, user.token);
     if (!response.success) {
       toast.error("Error while logging out");
     } else {
