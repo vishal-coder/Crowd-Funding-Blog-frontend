@@ -3,26 +3,25 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Single from "./components/Single";
-import createpost from "./components/CreatePost.js";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import RegistrationSuccess from "./components/RegistrationSuccess";
-import ResetPassword from "./components/ResetPassword";
-import VerifyEmail from "./components/VerifyEmail";
-import VerifyToken from "./components/VerifyToken";
-import ForgotPassword from "./components/ForgotPassword.js";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Navigate, Route, Routes } from "react-router-dom";
 import CreatePost from "./components/CreatePost.js";
 import Dashboard from "./components/Dashboard";
-import UserView from "./components/UserView";
+import ForgotPassword from "./components/ForgotPassword.js";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
 import Posts from "./components/Posts";
-import { useEffect } from "react";
-import { getAllPost } from "./services/postService";
-import { useDispatch } from "react-redux";
+import Register from "./components/Register";
+import ResetPassword from "./components/ResetPassword";
+import Single from "./components/Single";
+import UserView from "./components/UserView";
+import VerifyEmail from "./components/VerifyEmail";
+import VerifyToken from "./components/VerifyToken";
+import NotFound from "./components/NotFound.js";
 import { setpostList } from "./features/postSlice";
+import { getAllPost } from "./services/postService";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const response = await getAllPost();
-      console.log("resopnse of getAllPost APP.js is", response);
       dispatch(setpostList(response.posts));
     }
     fetchData();
@@ -39,7 +37,6 @@ function App() {
     <div className="App">
       <ToastContainer theme="colored" />
       <Navbar />
-      {/* <div className="separator"></div> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -54,13 +51,9 @@ function App() {
         <Route path="/userView" element={<UserView />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:category" element={<Posts />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
-      {/* <Navbar /> */}
-      {/* <Home /> */}
-      {/* <Single /> */}
-      {/* <createpost /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
     </div>
   );
 }

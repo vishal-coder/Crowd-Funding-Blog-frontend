@@ -1,21 +1,17 @@
-import "./css/login.css";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as yup from "yup";
+import { useContext, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
-import { requestLogin } from "../services/authService.js";
-import { setUser } from "../features/auth/authSlice.js";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getAdminPost, getAllPost, getUserPost } from "../services/postService";
+import * as yup from "yup";
+import { SocketContext } from "../context/socket";
+import { setUser } from "../features/auth/authSlice.js";
 import { addNewpost, setpostList } from "../features/postSlice";
-import { socket, SocketContext } from "../context/socket";
-import { useContext } from "react";
-import { useEffect } from "react";
-// import { setpostList } from "../features/postSlice.js";
+import { requestLogin } from "../services/authService.js";
+import { getAdminPost, getUserPost } from "../services/postService";
+import "./css/login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -23,12 +19,11 @@ function Login() {
   const socket = useContext(SocketContext);
   const handleLogin = async (values) => {
     const response = await requestLogin(values);
-    console.log(response);
+
     if (!response.success) {
       setFieldError("username", response.message);
     } else {
       dispatch(setUser(response.user));
-      console.log("response", response);
       const postList = handleGetPostlist(response.user);
       socket.emit("new user", {
         username: response.user.email,
@@ -41,14 +36,11 @@ function Login() {
       }
     }
   };
-  console.log("before usefeect login");
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log("I'm connected with the back-end", socket.id);
-    });
+    socket.on("connect", () => {});
     socket.on("new post", (data) => {
       dispatch(addNewpost(data.fullDocument));
-      alert("new post received");
+      toast.success("New post added to list");
     });
     socket.on("new Donation", (data) => {
       toast.success("Donation  received for on of the  post");
@@ -56,7 +48,6 @@ function Login() {
   }, []);
 
   const handleGetPostlist = async (user) => {
-    console.log("handlegetpostlist", user);
     if (user.userType != "admin") {
       const response = await getUserPost({
         username: user.email,
@@ -65,7 +56,6 @@ function Login() {
       dispatch(setpostList(response.posts));
     } else {
       const response = await getAdminPost({});
-
       dispatch(setpostList(response.posts));
     }
   };
@@ -110,9 +100,6 @@ function Login() {
             onBlur={handleBlur}
             required
           />
-          {/* <Form.Text className="text-muted">
-            your email is your username
-          </Form.Text> */}
         </Form.Group>
         {touched.password && errors.password ? (
           <div className="error">{errors.password}</div>

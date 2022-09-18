@@ -6,7 +6,6 @@ import Table from "react-bootstrap/Table";
 
 function PaymentInfoModal() {
   const { paymentInfo } = useSelector((state) => state.auth);
-  console.log("data in payment info modal", paymentInfo);
 
   return (
     <>

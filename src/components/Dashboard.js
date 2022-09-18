@@ -1,22 +1,21 @@
-import "./css/dashboard.css";
-import { PencilFill, TrashFill } from "react-bootstrap-icons";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { updateStatus } from "../services/postService";
 import { toast } from "react-toastify";
-import { addEditedpost } from "../features/postSlice";
-import Modal from "react-bootstrap/Modal";
-import PostPaymentDashboard from "./PostPaymentDashboard";
-import { useEffect, useState } from "react";
-import { getPaymentInfo, getTotalPayment } from "../services/paymentService";
 import { setUserPaymentInfo } from "../features/auth/authSlice";
+import { addEditedpost } from "../features/postSlice";
+import { getPaymentInfo, getTotalPayment } from "../services/paymentService";
+import { updateStatus } from "../services/postService";
+import "./css/dashboard.css";
+import PostPaymentDashboard from "./PostPaymentDashboard";
 
 function Dashboard() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  const [postId, setPostId] = useState(); //
+  const [postId, setPostId] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { postList } = useSelector((state) => state.post);
@@ -24,7 +23,6 @@ function Dashboard() {
 
   const handleUpdateStatus = async (post, status) => {
     const response = await updateStatus({ id: post._id, status: status });
-    console.log("response of update status is", response);
     if (response.success) {
       toast.success("status updated successfully");
       const updatedPost = {
@@ -109,9 +107,6 @@ function Dashboard() {
               <td>
                 {post.status != "Pending" ? (
                   <>
-                    {/* <Button variant="danger" size="sm">
-                      Delete
-                    </Button> */}
                     <span>No Action needed</span>
                   </>
                 ) : (

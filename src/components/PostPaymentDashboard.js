@@ -1,12 +1,10 @@
 import "./css/dashboard.css";
 
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { getPaymentInfo } from "../services/paymentService";
-import Table from "react-bootstrap/Table";
-import { formatDate } from "../services/utilityService";
+import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import Table from "react-bootstrap/Table";
+import { useSelector } from "react-redux";
+import { formatDate } from "../services/utilityService";
 
 function PostPaymentDashboard() {
   const { paymentInfo } = useSelector((state) => state.auth);

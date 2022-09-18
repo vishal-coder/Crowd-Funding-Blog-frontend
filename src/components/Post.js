@@ -1,20 +1,9 @@
-import { Link } from "react-router-dom";
-import { formatDate } from "../services/utilityService";
-import "./css/post.css";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "./css/post.css";
 import DonateButton from "./DonateButton";
 
 function Post({ post }) {
-  const { user } = useSelector((state) => state.auth);
-  const now = 60;
-
-  const handleDonate = () => {
-    if (!user) {
-    }
-    return toast.warning("Please login to donate");
-  };
   return (
     <div className="post">
       <img

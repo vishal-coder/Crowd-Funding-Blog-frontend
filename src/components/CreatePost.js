@@ -1,28 +1,20 @@
-import "./css/createpost.css";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { requestLogin } from "../services/authService.js";
-import { setUser } from "../features/auth/authSlice.js";
-import { toast } from "react-toastify";
-import { savePost } from "../services/postService";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import * as yup from "yup";
 import { addNewpost } from "../features/postSlice";
+import { savePost } from "../services/postService";
+import "./css/createpost.css";
 
 function CreatePost() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const handleCreate = async (values) => {
-    console.log(values);
     const response = await savePost(values);
-
-    console.log("response in add new post is", response);
 
     if (!response.success) {
       setFieldError("title", response.message);
@@ -161,9 +153,6 @@ function CreatePost() {
         <Button variant="primary" type="submit" className="createpostbtn">
           Create Post
         </Button>
-        {/* <Button variant="primary" type="reset" className="resetcreatepostbtn">
-          Reset
-        </Button> */}
       </Form>
     </div>
   );

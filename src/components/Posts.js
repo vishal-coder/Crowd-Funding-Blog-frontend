@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./css/posts.css";
@@ -9,10 +8,7 @@ function Posts() {
   const { postList } = useSelector((state) => state.post);
 
   let { category } = useParams();
-  if (category) {
-  }
-  console.log("postlist in postlist-category", category);
-  console.log("postlist in postlist", postList);
+
   return (
     <>
       <div className="home">
@@ -21,12 +17,7 @@ function Posts() {
             <p>Loading Post list...</p>
           ) : (
             <>
-              {/* {postList.map((post) => {
-            return post.status != "Pending" ? <Post post={post} /> : null;
-          })} */}
-
               {postList.map((post) => {
-                //post.status != "Pending" ? <Post post={post} /> : null//
                 return (
                   post.status != "Pending" &&
                   post.status != "Rejected" &&

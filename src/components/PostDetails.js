@@ -1,6 +1,5 @@
-import "./css/postdetails.css";
-import { PencilFill, TrashFill } from "react-bootstrap-icons";
 import { formatDate } from "../services/utilityService";
+import "./css/postdetails.css";
 import DonateButton from "./DonateButton";
 
 function PostDetails({ post }) {
@@ -14,21 +13,7 @@ function PostDetails({ post }) {
         />
         <h1 className="singleposttitle">
           {post.title}
-          <div className="singepostedit">
-            Category : {post.category}
-            {/* <PencilFill
-              className="singlepostIcon"
-              color="teal"
-              style={{ marginLeft: "2rem" }}
-              // onClick={() => handleDeleteProduct(product._id)}
-            />
-            <TrashFill
-              className="singlepostIcon"
-              color="tomato"
-              style={{ marginLeft: "2rem" }}
-              // onClick={() => handleDeleteProduct(product._id)}
-            /> */}
-          </div>
+          <div className="singepostedit">Category : {post.category}</div>
         </h1>
         <div className="singlepostinfo">
           <div className="singlepostauthor">Created By : {post.name}</div>
