@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import "./css/paymentModal.css";
+import Table from "react-bootstrap/Table";
 
 function PaymentInfoModal() {
   const { paymentInfo } = useSelector((state) => state.auth);
@@ -9,7 +10,13 @@ function PaymentInfoModal() {
 
   return (
     <>
-      <table style={{ width: "100%" }} className="styled-table">
+      <Table
+        style={{ width: "100%" }}
+        className="styled-table"
+        striped
+        bordered
+        hover
+      >
         <tr>
           <th>Username</th>
           <td>{paymentInfo.username}</td>
@@ -26,7 +33,7 @@ function PaymentInfoModal() {
           <th>Post name</th>
           <td>{paymentInfo.postTitle}</td>
         </tr>
-      </table>
+      </Table>
       <h6>Save payment Id for future reference</h6>
     </>
   );

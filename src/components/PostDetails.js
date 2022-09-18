@@ -1,6 +1,7 @@
 import "./css/postdetails.css";
 import { PencilFill, TrashFill } from "react-bootstrap-icons";
 import { formatDate } from "../services/utilityService";
+import DonateButton from "./DonateButton";
 
 function PostDetails({ post }) {
   return (
@@ -31,6 +32,11 @@ function PostDetails({ post }) {
         </h1>
         <div className="singlepostinfo">
           <div className="singlepostauthor">Created By : {post.name}</div>
+          <div>
+            {" "}
+            <DonateButton post={post} key={post._id} />
+          </div>
+
           <div className="singlepostdate">
             Created On : {formatDate(post.createdOn)}
           </div>

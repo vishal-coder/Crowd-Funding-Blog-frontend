@@ -36,11 +36,12 @@ function Sidebar({ userName }) {
           <li className="sidebarListItem">
             <Link to="/posts/Global Warming">Global Warming</Link>
           </li>
-          <li className="sidebarListItem">
-            <Link to="/posts/Natural Disasters">Natural Disasters</Link>
-          </li>
+
           <li className="sidebarListItem">
             <Link to="/posts/Other">Other</Link>
+          </li>
+          <li className="sidebarListItem">
+            <Link to="/posts/Natural Disasters">Natural Disasters</Link>
           </li>
         </ul>
       </div>{" "}
