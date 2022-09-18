@@ -11,7 +11,7 @@ import { requestLogin } from "../services/authService.js";
 import { setUser } from "../features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import { getAdminPost, getAllPost, getUserPost } from "../services/postService";
-import { setpostList } from "../features/postSlice";
+import { addNewpost, setpostList } from "../features/postSlice";
 import { socket, SocketContext } from "../context/socket";
 import { useContext } from "react";
 import { useEffect } from "react";
@@ -43,17 +43,15 @@ function Login() {
   };
   console.log("before usefeect login");
   useEffect(() => {
-    alert("started");
     socket.on("connect", () => {
       console.log("I'm connected with the back-end", socket.id);
     });
-    socket.on("new post", () => {
-      console.log("New post received", socket.id);
+    socket.on("new post", (data) => {
+      dispatch(addNewpost(data.fullDocument));
       alert("new post received");
     });
-    socket.on("new Donation", () => {
-      console.log("new Donation received", socket.id);
-      alert("new  Donation received");
+    socket.on("new Donation", (data) => {
+      toast.success("Donation  received for on of the  post");
     });
   }, []);
 

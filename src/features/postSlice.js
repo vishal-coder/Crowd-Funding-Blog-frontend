@@ -9,10 +9,7 @@ const postSlice = createSlice({
     setpostList: (state, action) => {
       state.postList = action.payload;
     },
-    //     addpostToList: (state, action) => {
-    //       //   state.postList.push({ ...action.payload });
-    //       state.postList = action.payload;
-    //     },
+
     addNewpost: (state, action) => {
       state.postList.push({ ...action.payload });
     },

@@ -52,6 +52,9 @@ function Dashboard() {
 
     const response = await getTotalPayment({ postId: postId }, user.token);
 
+    if (!response.paymentData.length > 0) {
+      return toast.warning("No data available for post");
+    }
     paymentInfoList.paymentData.receivedTotal =
       response.paymentData[0].receivedAmount;
     dispatch(setUserPaymentInfo(paymentInfoList.paymentData));
@@ -88,7 +91,7 @@ function Dashboard() {
               <td>{post.amount}</td>
               <td>{post.amount}</td>
               <td>
-                {post.status != "Pending" ? (
+                {post.status != "Pending" && post.status != "Rejected" ? (
                   <Button
                     variant="success"
                     size="sm"
@@ -139,7 +142,12 @@ function Dashboard() {
           ))}
         </tbody>
       </Table>
-      <Modal show={show} onHide={handleClose} dialogClassName="modal-50w">
+      <Modal
+        show={show}
+        onHide={handleClose}
+        dialogClassName="modal-50w"
+        scrollable={true}
+      >
         <Modal.Header closeButton>
           <Modal.Title className="text-center">Transaction Summary</Modal.Title>
         </Modal.Header>
