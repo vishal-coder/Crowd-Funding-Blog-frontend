@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# FundeME100 - Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Brief Description
+
+FundeME100 website is a platform where people can look around different campaigns running for various causes and can support them by donating Rs.100.The donation is done through RazorPay gateway
 
 ### `npm start`
 
