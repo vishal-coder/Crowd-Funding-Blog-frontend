@@ -8,7 +8,7 @@ function PostDetails({ post }) {
       <div className="postdetailswrapper">
         <img
           className="singlepostimg"
-          src="https://images.pexels.com/photos/3157890/pexels-photo-3157890.jpeg"
+          src="https://images.pexels.com/photos/6348119/pexels-photo-6348119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Coral Image"
         />
         <h1 className="singleposttitle">
