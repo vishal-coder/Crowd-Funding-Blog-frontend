@@ -35,6 +35,7 @@ FundeME100 website is a platform where people can look around different campaign
   - Socket.io - for Push Notification
   - RazorPay Payment Gateway for Payment Integration
 
+## Screenshots📷
 
 
 Runs the app in the development mode.\
