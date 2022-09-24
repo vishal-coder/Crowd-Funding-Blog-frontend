@@ -6,7 +6,10 @@
 
 FundeME100 website is a platform where people can look around different campaigns running for various causes and can support them by donating Rs.100.The donation is done through RazorPay gateway
 
-### `npm start`
+### `Short tech summary`
+  - Implemented authentication,authorization using Json Web Token for login,along with CRUD features.
+  - Integrated payment gateway by RazorPay API to collect donation and display transaction status.
+  - Implemented [MongoDB ChangeStream](https://www.mongodb.com/docs/manual/changeStreams) for push notification to admin about payments
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
