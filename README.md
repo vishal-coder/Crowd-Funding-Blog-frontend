@@ -1,4 +1,4 @@
-# FundeME100 - Website
+# [FundeME100](https://fundme100.netlify.app/) - Website
 
 
 
@@ -27,6 +27,15 @@ FundeME100 website is a platform where people can look around different campaign
   - Admin can see payment details of all campaign so to keep watch on all payment related activities
   - Admin can delete the campaign ,if the aim of the campaign is fulfilled.
   
+## Tech Used
+  - ReactJS
+  - ExpressJS
+  - NodeJS
+  - MongoDB and MongoDB ChangeStream
+  - Socket.io - for Push Notification
+  - RazorPay Payment Gateway for Payment Integration
+
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
