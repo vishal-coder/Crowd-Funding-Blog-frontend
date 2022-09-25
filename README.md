@@ -10,7 +10,9 @@ FundeME100 website is a platform where people can look around different campaign
 ### `Short tech summary`
   - Implemented authentication,authorization using Json Web Token for login,along with CRUD features.
   - Integrated payment gateway by RazorPay API to collect donation and display transaction status.
-  - Implemented [MongoDB ChangeStream](https://www.mongodb.com/docs/manual/changeStreams) for push notification to admin about payments
+  - Implemented [MongoDB ChangeStream](https://www.mongodb.com/docs/manual/changeStreams) for push notification to admin about payments  
+  `Payment Method:`  
+Select Net Banking -> select any Bank -> click on Pay button -> click on success
 
 
 ## Features
