@@ -36,13 +36,21 @@ FundeME100 website is a platform where people can look around different campaign
   - RazorPay Payment Gateway for Payment Integration
 
 ## Screenshots📷
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Homepage
+![Homepage](/ScreenShots/Home.JPG "Homepage")
+- Campaign List
+![Campaign List](/ScreenShots/Listings.JPG "Campaign List")
+- Detail Campaign 
+![Detail Campaign ](/ScreenShots/PostDetails.JPG "Detail Campaign")
+- Create Campaign Form
+![Create Campaign Form](/ScreenShots/CreatePost.JPG "Create Campaign Form")
+- User Campaign List and Payment view
+![User Campaign List and Payment view](/ScreenShots/Post-Payment Info.JPG "Patient Appointment view")
+- Transaction1
+![Transaction1](/ScreenShots/Transaction1.JPG "Transaction1")
+- Transaction2
+![Transaction2](/ScreenShots/Transaction2.JPG "Transaction2")
+- Admin Dashboard View
+![Admin Dashboard View](/ScreenShots/Admin-Dashboard.JPG "Admin Dashboard View")
+- Admin Transaction Details
+![Admin Transaction Details](/ScreenShots/AdminTransaction.JPG "Admin Transaction Details")
