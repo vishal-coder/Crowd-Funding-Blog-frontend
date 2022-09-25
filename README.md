@@ -39,18 +39,18 @@ FundeME100 website is a platform where people can look around different campaign
 - Homepage
 ![Homepage](/ScreenShots/Home.JPG "Homepage")
 - Campaign List
-![Doctor List](/ScreenShots/Listings.JPG "Campaign List")
+![Campaign List](/ScreenShots/Listings.JPG "Campaign List")
 - Detail Campaign 
-![Doctor List](/ScreenShots/PostDetails.JPG "Detail Campaign")
+![Detail Campaign ](/ScreenShots/PostDetails.JPG "Detail Campaign")
 - Create Campaign Form
-![Appoinment Form](/ScreenShots/Create Post.JPG "Create Campaign Form")
+![Create Campaign Form](/ScreenShots/CreatePost.JPG "Create Campaign Form")
 - User Campaign List and Payment view
-![Patient Appointment view](/ScreenShots/Post-Payment Info.JPG "Patient Appointment view")
+![User Campaign List and Payment view](/ScreenShots/Post-Payment Info.JPG "Patient Appointment view")
 - Transaction1
-![Admin Add Doctor Form](/ScreenShots/Transaction1.JPG "Transaction1")
+![Transaction1](/ScreenShots/Transaction1.JPG "Transaction1")
 - Transaction2
-![Admin Add Doctor Form](/ScreenShots/Transaction2.JPG "Transaction2")
+![Transaction2](/ScreenShots/Transaction2.JPG "Transaction2")
 - Admin Dashboard View
-![Admin Add Doctor Form](/ScreenShots/Admin-Dashboard.JPG "Admin Dashboard View")
+![Admin Dashboard View](/ScreenShots/Admin-Dashboard.JPG "Admin Dashboard View")
 - Admin Transaction Details
-![Admin DoctorList](/ScreenShots/Admin Transaction.JPG "Admin Transaction Details")
+![Admin Transaction Details](/ScreenShots/AdminTransaction.JPG "Admin Transaction Details")
