@@ -48,7 +48,9 @@ function UserView() {
 
     const response = await getTotalPayment({ postId: postId }, user.token);
     paymentInfoList.paymentData.receivedTotal =
-      response.paymentData[0].receivedAmount;
+      response.paymentData[0] && response.paymentData[0].receivedAmount
+        ? response.paymentData[0].receivedAmount
+        : "00";
     dispatch(setUserPaymentInfo(paymentInfoList.paymentData));
     handleShow();
   };

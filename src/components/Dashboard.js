@@ -71,7 +71,7 @@ function Dashboard() {
             <th>Status</th>
             <th>Category</th>
             <th>Target</th>
-            <th>Received</th>
+            {/* <th>Received</th> */}
             <th>Pay Info</th>
             <th>Actions</th>
           </tr>
@@ -87,7 +87,7 @@ function Dashboard() {
               <td>{post.status}</td>
               <td>{post.category}</td>
               <td>{post.amount}</td>
-              <td>{post.amount}</td>
+              {/* <td>{post.amount}</td> */}
               <td>
                 {post.status != "Pending" && post.status != "Rejected" ? (
                   <Button

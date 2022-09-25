@@ -31,12 +31,12 @@ function CreatePost() {
     title: yup
       .string()
       .min(10, "minimum length should be 10")
-      .max(30)
+      .max(50)
       .required("Please enter title of post"),
     description: yup
       .string()
-      .min(50)
-      .max(700)
+      .min(100)
+      .max(1000)
       .required("please enter your description"),
     amount: yup
       .number()

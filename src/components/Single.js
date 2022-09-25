@@ -11,16 +11,13 @@ function Single() {
   const [postDetails, setPostDetails] = useState("");
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
-  console.log("single id is", Id);
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-
-      console.log("single id is in side fetch", Id);
       const response = await getPostDetails({ _id: Id });
       setPostDetails(response.post);
       setUser(response.post.username);
-      console.log("test");
       setLoading(false);
     }
     fetchData();

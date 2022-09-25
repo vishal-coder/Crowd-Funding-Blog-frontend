@@ -22,9 +22,11 @@ function Posts() {
                   post.status != "Pending" &&
                   post.status != "Rejected" &&
                   (category ? (
-                    category == post.category && <Post post={post} />
+                    category == post.category && (
+                      <Post key={post._id} post={post} />
+                    )
                   ) : (
-                    <Post post={post} />
+                    <Post key={post._id} post={post} />
                   ))
                 );
               })}
